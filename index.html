@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8" />
+        <!-- <link rel="icon" type="image/png" href="assets/favicon.png" /> -->
+        <!-- <link
+            href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+            rel="stylesheet"
+        /> -->
+        <title>Les petits plats</title>
+    </head>
+    <body>
+        <header>
+            <div class="headerContent_wrapper">
+                <a href="index.html" aria-label="Les petits plats home page">
+                    <img src="assets/icons/logo/Logo.svg" alt="Les petits plats logo home page"
+                /></a>
+                <div class="headerContent">
+                    <h1>
+                        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET D2LICIEUSES
+                    </h1>
+                    <div class="search-bar_wrapper">
+                        <input
+                            type="search"
+                            id="search"
+                            placeholder=" Rechercher une recette, un ingrédient, ..."
+                        />
+                        <button id="research">
+                            <img src="assets/icons/Property 1=Default.svg" alt="searchIco" />
+                        </button>
+                    </div>
+
+                    <label for="search"></label>
+                </div>
+            </div>
+        </header>
+        <main id="main">
+            <div id="recipeCount">
+                <p></p>
+            </div>
+            <div class="filterContainer">
+                <div id="filters" class="filters"></div>
+                <div id="activeFilters" class="filters"></div>
+            </div>
+        </main>
+        <script src="data/recipes.js"></script>
+        <script src="scripts/filteringfunctions/main.js"></script>
+        <script src="scripts/filteringfunctions/bykeyword.js"></script>
+        <script src="scripts/filteringfunctions/bytags.js"></script>
+        <script src="scripts/templates/tag.js"></script>
+        <script src="scripts/templates/recipe.js"></script>
+        <script src="scripts/templates/filter.js"></script>
+        <script src="scripts/controllers/recipes.js"></script>
+        <script src="scripts/controllers/filters.js"></script>
+        <script src="scripts/pages/index.js"></script>
+    </body>
+</html>
