@@ -69,15 +69,24 @@ h2 {
     position: relative;
     right: 60px;
 }
-.filterContainer {
+#banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 30px 0 30px 0;
 }
-/* .filters {
+.filterContainer {
+    width: 60%;
+}
+#recipeCount {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-} */
+    font-size: 21px;
+    font-family: Anton;
+    font-weight: 400;
+}
+#recipeCount p {
+    margin-left: 5px;
+}
 #filters {
     display: flex;
     justify-content: space-between;
@@ -108,16 +117,22 @@ h2 {
     cursor: pointer;
     font-family: inherit;
     font-size: 16px;
+    font-weight: 500;
 }
 
 .dropdownContent {
     position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    border: 1px solid #ddd;
+    width: 200px;
     z-index: 1;
+    background-color: white;
+    /*  background-color: red; */
+    border-radius: 11px;
+    position: absolute;
+    transform: translateY(-20px);
 }
-.dropdownArrow {
+
+.dropdownContent input {
+    margin: 25px 15px 15px 15px;
 }
 .dropdownContent p {
     color: black;
@@ -179,6 +194,7 @@ h2 {
     color: #7a7a7a;
     font-size: 12px;
     font-weight: 700;
+    margin: 25px 0 20px 0;
 }
 .recipeCard h3 {
     color: #7a7a7a;
@@ -201,6 +217,7 @@ h2 {
     height: 76px;
     width: 330px;
     line-height: 19px;
+    font-weight: 400;
 }
 .card_insert {
     display: flex;

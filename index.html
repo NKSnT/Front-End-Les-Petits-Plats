@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8" />
         <!-- <link rel="icon" type="image/png" href="assets/favicon.png" /> -->
@@ -18,7 +25,7 @@
                 /></a>
                 <div class="headerContent">
                     <h1>
-                        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET D2LICIEUSES
+                        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
                     </h1>
                     <div class="search-bar_wrapper">
                         <input
@@ -36,18 +43,19 @@
             </div>
         </header>
         <main id="main">
-            <div id="recipeCount">
-                <p></p>
-            </div>
-            <div class="filterContainer">
-                <div id="filters" class="filters"></div>
-                <div id="activeFilters" class="filters"></div>
+            <div id="banner">
+                <div class="filterContainer">
+                    <div id="filters" class="filters"></div>
+                    <div id="activeFilters" class="filters"></div>
+                </div>
+                <div id="recipeCount"></div>
             </div>
         </main>
         <script src="data/recipes.js"></script>
         <script src="scripts/filteringfunctions/main.js"></script>
         <script src="scripts/filteringfunctions/bykeyword.js"></script>
         <script src="scripts/filteringfunctions/bytags.js"></script>
+        <script src="scripts/templates/recipesNumber_insert.js"></script>
         <script src="scripts/templates/tag.js"></script>
         <script src="scripts/templates/recipe.js"></script>
         <script src="scripts/templates/filter.js"></script>

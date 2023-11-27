@@ -2,16 +2,7 @@ async function getRecipe() {
     let recipe_liste = recipes;
     return recipe_liste;
 }
-/* 
-async function sortData(recipes) {
-    var recipesListe = new Array();
-    recipes.forEach((recipe) => {
-        //if params x == y
-        //do 
-        //filter
-    })
-} 
-*/
+
 let areFiltersReset = false;
 
 async function displayData(recipes) {
@@ -27,6 +18,10 @@ async function displayData(recipes) {
             areFiltersReset = true;
         }
     });
+    var recipeCount = document.getElementById('recipeCount');
+    insertContent = insertTemplate(recipes.length);
+    recipeCount.appendChild(insertContent.counter);
+    recipeCount.appendChild(insertContent.label);
     const filters = document.getElementById('filters');
     const filterDOM = createFilterDOM(recipes);
     const userCardDOM = createRecipeDOM(recipes);
