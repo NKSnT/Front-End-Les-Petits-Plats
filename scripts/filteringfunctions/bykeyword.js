@@ -29,7 +29,7 @@ function filterByKeyWord(keyword) {
                     })
                     .includes(keyW)
             ) {
-                filteredElementsListId.push(e.id.slice(-1));
+                filteredElementsListId.push(e.id.split('_').pop());
             }
         });
         return filteredElementsListId;
