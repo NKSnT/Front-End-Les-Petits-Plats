@@ -23,12 +23,10 @@ function filterByTags(data) {
     function getShowRecipesList(data) {
         var comparativArr;
         var dataToReturn;
-        //var tagtoggle = selectedTagList.length;
 
         if (primaryRecipesList.length == 0) {
             comparativArr = recipes;
         } else {
-            //comparativArr = secondatryRecipesList; update by keyword
             comparativArr = primaryRecipesList;
         }
         if (data.length >= 1) {
@@ -49,12 +47,10 @@ function filterByTags(data) {
                         return false;
                     }
                 });
-                //return recipesShowList;
-                dataToReturn = recipesShowList;
+                comparativArr = recipesShowList;
             });
-        } else if (selectedTagList.length == 0) {
-            dataToReturn = comparativArr;
         }
+        dataToReturn = comparativArr;
         secondatryRecipesList = comparativArr;
         return dataToReturn;
     }

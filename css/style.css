@@ -62,12 +62,18 @@ h2 {
     background-image: url('../assets/icons/close.svg');
     background-size: contain;
 }
-#research {
+#research_ico {
     padding: 0;
     border: none;
     background: none;
-    position: relative;
-    right: 60px;
+    transform: translateX(-60px);
+}
+.research_ico {
+    transform: translate(-40px, 6px);
+}
+.tagSearch {
+    display: flex;
+    flex-direction: row;
 }
 #banner {
     display: flex;
@@ -129,10 +135,29 @@ h2 {
     border-radius: 11px;
     position: absolute;
     transform: translateY(-20px);
+    max-height: 315px;
+    overflow: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.dropdownContent::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
 }
 
 .dropdownContent input {
     margin: 25px 15px 15px 15px;
+    border: 1px #c6c6c6 solid;
+    border-radius: 2px;
+    height: 30px;
+}
+.dropdownContent input::-webkit-search-cancel-button {
+    position: relative;
+    right: 25px;
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    background-image: url('../assets/icons/close_light.svg');
+    background-size: contain;
 }
 .dropdownContent p {
     color: black;

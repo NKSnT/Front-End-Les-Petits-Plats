@@ -8,6 +8,8 @@ let newFilteredList = new Array();
 let selectedTagList = new Array();
 
 let activeResearch = undefined;
+
+let error = undefined;
 //a déplacé plus tard, mais est appeler en premier, puis apelle les fonction bytag/bykeyword
 function filterIni() {
     function bykeyword(data) {
@@ -15,8 +17,19 @@ function filterIni() {
             activeResearch = data;
             var newList = filterByKeyWord(data);
             g_ShowRecipesList(newList);
+            if (newList.length == 0) {
+                if (!error) {
+                    error = document.createElement('p');
+                    error.id = 'error';
+                    error.innerText = `Aucune recette ne contient "${data}"`;
+                    document.getElementById('main').insertAdjacentElement('beforeend', error);
+                } else {
+                    error.innerText = `Aucune recette ne contient "${data}"`;
+                }
+            }
             var newfilersList = createFilterDOM(newList);
             var tagoptionList = document.querySelectorAll('.tagOption');
+
             tagoptionList.forEach((e) => {
                 if (!newfilersList.includes(e.innerText.toLowerCase())) {
                     if (!e.classList.contains('hidden')) {
@@ -30,6 +43,11 @@ function filterIni() {
             });
         } else {
             //if research is canceled
+            if (error) {
+                error.remove();
+                error = undefined;
+            }
+
             if (secondaryRecipesList.length == 0) {
                 g_ShowRecipesList(recipes);
             } else {
@@ -50,7 +68,10 @@ function filterIni() {
     }
     return { bykeyword, bytag };
 }
-function g_ShowRecipesList(newRecipesList, refArr) {
+function g_ShowRecipesList(newRecipesList) {
+    var recipeCount = newRecipesList.length;
+    var recipeCounter = document.getElementById('recipeCounter');
+    recipeCounter.innerText = recipeCount;
     recipes.some((e) => {
         if (newRecipesList.includes(e)) {
             g_showElement(e);

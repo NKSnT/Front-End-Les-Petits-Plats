@@ -3,7 +3,7 @@ async function getRecipe() {
     return recipe_liste;
 }
 
-let areFiltersReset = false;
+let alreadySearchOnce = false;
 
 async function displayData(recipes) {
     const main = document.getElementById('main');
@@ -12,11 +12,15 @@ async function displayData(recipes) {
         var reserch = searchBarre.value;
         if (reserch.length >= 3) {
             filterIni().bykeyword(reserch);
-            areFiltersReset = false;
-        } else if (reserch.length < 3 && areFiltersReset == false) {
+            alreadySearchOnce = true;
+        } else if (reserch.length < 3 && alreadySearchOnce == true) {
             filterIni().bykeyword();
-            areFiltersReset = true;
+            alreadySearchOnce = false;
         }
+    });
+    searchBarre.addEventListener('search', () => {
+        filterIni().bykeyword();
+        alreadySearchOnce = false;
     });
     var recipeCount = document.getElementById('recipeCount');
     insertContent = insertTemplate(recipes.length);
