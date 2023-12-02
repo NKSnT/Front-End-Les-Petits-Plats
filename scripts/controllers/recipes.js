@@ -8,3 +8,4 @@ function createRecipeDOM(recipes) {
     });
     return section;
 }
+//ini de la creation des carte de recette

@@ -1,5 +1,4 @@
-//let newRecipes = new Array();
-
+//fonction de filtrage par filtre
 function filterByTags(data) {
     var newFilteredList = getShowRecipesList(data);
 
@@ -51,7 +50,7 @@ function filterByTags(data) {
             });
         }
         dataToReturn = comparativArr;
-        secondatryRecipesList = comparativArr;
+        secondatryRecipesList = comparativArr; // ini pour une recherche par mots clée
         return dataToReturn;
     }
 }

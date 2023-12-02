@@ -1,4 +1,6 @@
 let load = true;
+//fonction qui récupere chaque élément unique parmis les ingrédient,lesustensile,...
+//et qui les fournis au constructeur des filtres
 function createFilterDOM(recipes) {
     function getUniqueItemList(recipes, typeOfItem) {
         var allUniqueItem = new Array();
@@ -30,19 +32,10 @@ function createFilterDOM(recipes) {
         var applianceFilter = filterTemplate(applianceList, 'appliance');
         var ingredientFilter = filterTemplate(ingredientsList, 'ingredients');
         var ustensilFilter = filterTemplate(ustensilsList, 'ustensiles');
-
         load = false;
         return { applianceFilter, ingredientFilter, ustensilFilter };
     } else {
         var fullList = applianceList.concat(ingredientsList, ustensilsList);
         return fullList;
     }
-
-    ////////////////////////////////////
-    ///// filter && search bar need to fire an event (the same ? )
-    //// on change / input
-    //// => this part is only to "make the filter"
-    /////////////////////////////////
-
-    //return { applianceFilter, ingredientFilter, ustensilFilter };
 }

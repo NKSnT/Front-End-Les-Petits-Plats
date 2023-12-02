@@ -1,23 +1,24 @@
+//initialisation du filtrage
 let primaryRecipesList = new Array();
 //arr modifier by keyword, used for secondary tag search
 let secondaryRecipesList = new Array();
-//arr modifier par tag used for secondary keyword search
+//arr modifier by tag used for secondary keyword search
 
 let newFilteredList = new Array();
-
 let selectedTagList = new Array();
 
 let activeResearch = undefined;
-
 let error = undefined;
-//a déplacé plus tard, mais est appeler en premier, puis apelle les fonction bytag/bykeyword
+
 function filterIni() {
     function bykeyword(data) {
         if (data) {
             activeResearch = data;
-            var newList = filterByKeyWord(data);
-            g_ShowRecipesList(newList);
+            var newList = filterByKeyWord(data); //recupere la list de recette a afficher
+            //var newList = filterByKeyWordBis(data);
+            g_ShowRecipesList(newList); //effectue l'affichage des recette nécessair
             if (newList.length == 0) {
+                //crée l'element d'erreur dans le cas ou aucune recette ne corespond a la recherce
                 if (!error) {
                     error = document.createElement('p');
                     error.id = 'error';
@@ -42,12 +43,12 @@ function filterIni() {
                 }
             });
         } else {
+            //gere le cas ou aucun mot clé n'est passer en argument ( lenght < 3)
             //if research is canceled
             if (error) {
                 error.remove();
                 error = undefined;
             }
-
             if (secondaryRecipesList.length == 0) {
                 g_ShowRecipesList(recipes);
             } else {
@@ -61,10 +62,9 @@ function filterIni() {
     function bytag(data) {
         tagTemplate(data);
         var tagName = data.innerText.toLowerCase();
-        selectedTagList.push(tagName);
+        selectedTagList.push(tagName); //ajout le tag passer en argument a la liste des filtres actif
         var newList = filterByTags(selectedTagList);
         g_ShowRecipesList(newList);
-        //secondaryRecipesList = newList;
     }
     return { bykeyword, bytag };
 }

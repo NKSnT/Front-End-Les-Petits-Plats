@@ -1,3 +1,4 @@
+//fonction de filtrage par mots clés
 function filterByKeyWord(keyword) {
     var keyW = keyword;
 
@@ -48,7 +49,6 @@ function filterByKeyWord(keyword) {
                 return false;
             }
         });
-        primaryRecipesList = recipesShowList;
-        return recipesShowList;
+        primaryRecipesList = recipesShowList; //ini pour la prochaine recherche par filtre
     }
 }

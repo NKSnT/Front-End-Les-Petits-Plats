@@ -9,7 +9,6 @@ function filterTemplate(items, itemType) {
     dropdownArroy.classList = 'dropdownArrow';
     dropdownArroy.setAttribute('src', `assets/icons/down.svg`);
     var dropdownContent = document.createElement('div');
-    //dropdownContent.classList = 'dropdownContent dropdown-hide';
     dropdownContent.setAttribute('class', 'dropdownContent dropdown-hide');
     var dropdownSearch_container = document.createElement('div');
     dropdownSearch_container.classList = 'tagSearch';
