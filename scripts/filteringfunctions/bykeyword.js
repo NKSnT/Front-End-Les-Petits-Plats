@@ -4,7 +4,7 @@ function filterByKeyWord(keyword) {
     var elementsList = getShowElementsList(keyW);
     var newFilteredList = getShowRecipesList(elementsList);
     return newFilteredList;
-
+    //effectue le triage des element du dom (contien le mots clé dans la description / titre / aliment)
     function getShowElementsList(keyW) {
         var showedRecipes = document.querySelectorAll('.recipeCard');
 
@@ -33,6 +33,7 @@ function filterByKeyWord(keyword) {
         }
         return filteredElementsListId;
     }
+    //efectue le triage dans la "data"
     function getShowRecipesList(elementsList) {
         console.log(elementsList);
         var recipesShowList = new Array();
