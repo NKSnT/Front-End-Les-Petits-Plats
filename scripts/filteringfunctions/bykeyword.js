@@ -8,8 +8,8 @@ function filterByKeyWord(keyword) {
 
     function getShowElementsList(keyW) {
         var showedRecipes = document.querySelectorAll('.recipeCard');
-
         var filteredElementsListId = new Array();
+        //effectue le triage des element du dom (contien le mots clé dans la description / titre / aliment)
         showedRecipes.forEach((e) => {
             var ref = e.lastChild;
             var title = ref.firstChild;
@@ -20,7 +20,6 @@ function filterByKeyWord(keyword) {
             ingrList.forEach((e) => {
                 ingrListContent.push(e.innerText);
             });
-
             if (
                 title.innerText.toLowerCase().includes(keyW) ||
                 desc.innerText.toLowerCase().includes(keyW) ||
@@ -35,6 +34,7 @@ function filterByKeyWord(keyword) {
         });
         return filteredElementsListId;
     }
+    //efectue le triage dans la "data"
     function getShowRecipesList(elementsList) {
         var comparativArr;
         if (secondaryRecipesList.length == 0) {
@@ -50,5 +50,6 @@ function filterByKeyWord(keyword) {
             }
         });
         primaryRecipesList = recipesShowList; //ini pour la prochaine recherche par filtre
+        return recipesShowList;
     }
 }

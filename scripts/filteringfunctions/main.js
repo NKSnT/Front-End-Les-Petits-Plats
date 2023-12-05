@@ -1,4 +1,3 @@
-//initialisation du filtrage
 let primaryRecipesList = new Array();
 //arr modifier by keyword, used for secondary tag search
 let secondaryRecipesList = new Array();
@@ -31,6 +30,7 @@ function filterIni() {
             var newfilersList = createFilterDOM(newList);
             var tagoptionList = document.querySelectorAll('.tagOption');
 
+            /* gere l'update des tag possible apres une recherche */
             tagoptionList.forEach((e) => {
                 if (!newfilersList.includes(e.innerText.toLowerCase())) {
                     if (!e.classList.contains('hidden')) {
@@ -49,11 +49,13 @@ function filterIni() {
                 error.remove();
                 error = undefined;
             }
+            if (primaryRecipesList.length != 0) {
+                primaryRecipesList = []; //reset la base pour le tri par tag
+            }
             if (secondaryRecipesList.length == 0) {
                 g_ShowRecipesList(recipes);
             } else {
-                primaryRecipesList = []; //reset la base pour le tri par tag
-                var resetList = filterByTags(selectedTagList);
+                var resetList = secondaryRecipesList;
                 g_ShowRecipesList(resetList);
             }
             activeResearch = undefined;

@@ -4,10 +4,10 @@ async function getRecipe() {
 }
 
 let alreadySearchOnce = false;
-
 async function displayData(recipes) {
     const main = document.getElementById('main');
     const searchBarre = document.getElementById('search');
+    //fire researche by keyword
     searchBarre.addEventListener('keyup', () => {
         var reserch = searchBarre.value;
         if (reserch.length >= 3) {
@@ -35,10 +35,8 @@ async function displayData(recipes) {
 
     main.appendChild(userCardDOM);
 }
-
 async function init() {
     const recipes = await getRecipe();
     displayData(recipes);
 }
-
 init();

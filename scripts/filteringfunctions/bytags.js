@@ -1,10 +1,11 @@
 //fonction de filtrage par filtre
 function filterByTags(data) {
-    var newFilteredList = getShowRecipesList(data);
+    // recuper les donnée triés
 
+    var newFilteredList = getShowRecipesList(data);
+    var tagoptionList = document.querySelectorAll('.tagOption');
     /* gere l'update des tag possible apres une recherche */
     var newfilersList = createFilterDOM(newFilteredList);
-    var tagoptionList = document.querySelectorAll('.tagOption');
     tagoptionList.forEach((e) => {
         if (!newfilersList.includes(e.innerText.toLowerCase())) {
             if (!e.classList.contains('hidden')) {
