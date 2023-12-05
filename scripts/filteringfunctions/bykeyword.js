@@ -1,5 +1,4 @@
-//fonction de filtrage par mots clés
-function filterByKeyWord(keyword) {
+function filterByKeyWordBis(keyword) {
     var keyW = keyword;
 
     var elementsList = getShowElementsList(keyW);
@@ -8,18 +7,18 @@ function filterByKeyWord(keyword) {
 
     function getShowElementsList(keyW) {
         var showedRecipes = document.querySelectorAll('.recipeCard');
+
         var filteredElementsListId = new Array();
-        //effectue le triage des element du dom (contien le mots clé dans la description / titre / aliment)
-        showedRecipes.forEach((e) => {
-            var ref = e.lastChild;
+        for (i = 0; i < showedRecipes.length; i++) {
+            var ref = showedRecipes[i].lastChild;
             var title = ref.firstChild;
             var desc = ref.querySelector('.recipeDescription');
             var ingr = ref.querySelector('.ingredientList');
             var ingrList = ingr.querySelectorAll('.ingredient_name');
             var ingrListContent = new Array();
-            ingrList.forEach((e) => {
-                ingrListContent.push(e.innerText);
-            });
+            for (n = 0; n < ingrList.length; n++) {
+                ingrListContent.push(ingrList[n].innerText);
+            }
             if (
                 title.innerText.toLowerCase().includes(keyW) ||
                 desc.innerText.toLowerCase().includes(keyW) ||
@@ -29,27 +28,31 @@ function filterByKeyWord(keyword) {
                     })
                     .includes(keyW)
             ) {
-                filteredElementsListId.push(e.id.split('_').pop());
+                filteredElementsListId.push(showedRecipes[i].id.split('_').pop());
             }
-        });
+        }
         return filteredElementsListId;
     }
-    //efectue le triage dans la "data"
     function getShowRecipesList(elementsList) {
+        console.log(elementsList);
+        var recipesShowList = new Array();
         var comparativArr;
         if (secondaryRecipesList.length == 0) {
             comparativArr = recipes;
         } else {
             comparativArr = secondaryRecipesList;
         }
-        var recipesShowList = comparativArr.filter((item) => {
-            if (elementsList.includes(JSON.stringify(item.id))) {
-                return true;
-            } else {
-                return false;
+        var j = 0;
+
+        while (j < comparativArr.length) {
+            for (k = 0; k < elementsList.length; k++) {
+                if (elementsList[k] == JSON.stringify(comparativArr[j].id)) {
+                    recipesShowList.push(comparativArr[j]);
+                }
             }
-        });
-        primaryRecipesList = recipesShowList; //ini pour la prochaine recherche par filtre
+            j++;
+        }
+        primaryRecipesList = recipesShowList;
         return recipesShowList;
     }
 }
