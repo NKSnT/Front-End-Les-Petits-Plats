@@ -1,4 +1,4 @@
-function filterByKeyWordBis(keyword) {
+function filterByKeyWord(keyword) {
     var keyW = keyword;
 
     var elementsList = getShowElementsList(keyW);
