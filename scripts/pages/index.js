@@ -29,8 +29,8 @@ async function displayData(recipes) {
     const filters = document.getElementById('filters');
     const filterDOM = createFilterDOM(recipes);
     const userCardDOM = createRecipeDOM(recipes);
-    filters.appendChild(filterDOM.applianceFilter);
     filters.appendChild(filterDOM.ingredientFilter);
+    filters.appendChild(filterDOM.applianceFilter);
     filters.appendChild(filterDOM.ustensilFilter);
 
     main.appendChild(userCardDOM);
